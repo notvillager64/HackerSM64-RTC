@@ -31,8 +31,12 @@ This is a fork of the ultrasm64 repo by CrashOveride which includes the followin
 - **anonymous_moose**: porting falco's extended bounds to decomp
 - **tuxlovesyou**: `LOAD_MIO0_TEXTURE` macro and moral support
 - **devwizard**: the PJ64 pre-v3.0 detection part of the emulator detector
+- **Thunder**: Original RTC code
 
 Thanks to Frame#5375 and AloXado320 for also helping with silhouette stuff
+
+**Real Time Clock support**
+- Blah blah blah something something, taken from https://gitlab.com/thundertheidiot/hackersm64-rtc, albeit unoptimized and causes some emulators to throw up errors and stuff.
 
 **Lighting Engine by Wiseguy**
 - Lighting Engine is available on a separate branch ([base/lighting-engine](https://github.com/Reonu/HackerSM64/tree/base/lighting-engine)). Instructions on how to use it are in the readme of that branch.
