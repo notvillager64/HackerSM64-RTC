@@ -17,6 +17,7 @@
 #include "engine/math_util.h"
 #include "puppycam2.h"
 #include "puppyprint.h"
+#include "rtc.h"
 
 #include "config.h"
 
@@ -518,6 +519,14 @@ void render_hud_camera_status(void) {
     gSPDisplayList(gDisplayListHead++, dl_hud_img_end);
 }
 
+void render_hud_rtc() {
+	OSRTCTime time = rtc();
+
+    print_text_fmt_int(20, 5, "CLOCK %d", time.hour);
+    print_text_fmt_int(120, 5, "%d", time.min);
+    print_text_fmt_int(148, 5, "%d", time.sec);
+}
+
 /**
  * Render HUD strings using hudDisplayFlags with it's render functions,
  * excluding the cannon reticle which detects a camera preset for it.
@@ -555,6 +564,9 @@ void render_hud(void) {
         if (gCurrentArea != NULL && gCurrentArea->camera->mode == CAMERA_MODE_INSIDE_CANNON) {
             render_hud_cannon_reticle();
         }
+
+		// RTC Test Code
+		render_hud_rtc();
 
 #ifdef ENABLE_LIVES
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_LIVES) {

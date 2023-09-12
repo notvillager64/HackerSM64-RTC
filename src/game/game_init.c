@@ -1,4 +1,5 @@
 #include <ultra64.h>
+#include <rtc.h>
 
 #include "sm64.h"
 #include "gfx_dimensions.h"
@@ -746,6 +747,8 @@ void setup_game_memory(void) {
  * Main game loop thread. Runs forever as long as the game continues.
  */
 void thread5_game_loop(UNUSED void *arg) {
+	osRTCInit(&gSIEventMesgQueue);
+
     setup_game_memory();
 #if ENABLE_RUMBLE
     init_rumble_pak_scheduler_queue();
